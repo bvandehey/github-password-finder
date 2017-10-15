@@ -1,4 +1,5 @@
 {
+    "githubHtmlUrl": "https://github.com",
     "githubApiUrl": "https://api.github.com",
     "rawSourceGithubUrl": "https://raw.githubusercontent.com"
 }

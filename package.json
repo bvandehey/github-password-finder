@@ -1,0 +1,17 @@
+{
+  "name": "github-password-finder",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "express": "~4.15.5",
+    "http-codes": "^1.0.0",
+    "lodash": "^4.17.4",
+    "options-parser": "^0.4.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  }
+}

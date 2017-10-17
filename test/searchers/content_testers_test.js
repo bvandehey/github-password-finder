@@ -6,7 +6,7 @@ const contentTesters = rewire('../../lib/searchers/content_testers');
 const fs = require('fs');
 
 contentTesters.__set__({
-    SECRET_KEYWORDS: ['password', 'secret']
+    ALLOW_TEST_RESOURCES: true
 });
 
 function testFile(file) {
@@ -194,4 +194,28 @@ describe('GIVEN a properties file', () => {
             .andExpectToHaveFoundAPassword()
             .andItsNotForLocalhost();
     });
+});
+
+describe('GIVEN all the detected false-positives in previous runs', () => {
+
+    const noPasswordPath = 'test/resources/false_positives/no_password';
+    const localhostsPath = 'test/resources/false_positives/for_localhosts'
+
+    fs.readdirSync(noPasswordPath)
+        .forEach(file => {
+            const fullPath = `${noPasswordPath}/${file}`;
+
+            it(`WHEN scanning ${fullPath}, THEN no passwords should be found`, () => {
+                testFile(fullPath).andExpectNotToHaveFoundAPassword();
+            });
+        });
+
+    fs.readdirSync(localhostsPath)
+        .forEach(file => {
+            const fullPath = `${localhostsPath}/${file}`;
+
+            it(`WHEN scanning ${fullPath}, THEN only localhost passwords should be found`, () => {
+                testFile(fullPath).andExpectToHaveFoundAPassword().butItsOnlyForLocalhost();
+            });
+        });
 });

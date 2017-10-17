@@ -8,8 +8,8 @@ config.init()
         if (config.opts.user) {
             return passwordFinder.findForUser(config.opts.user);
         }
+        return passwordFinder.findAll();
     })
-    .then(result => {
-        console.log(JSON.stringify(result, null, '\t'));
+    .then(() => {
         process.exit();
     });

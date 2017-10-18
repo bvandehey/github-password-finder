@@ -8,7 +8,7 @@ config.init()
         if (config.opts.user) {
             return passwordFinder.findForUser(config.opts.user);
         }
-        return passwordFinder.findAll();
+        return passwordFinder.findAll(config.opts.since);
     })
     .then(() => {
         process.exit();

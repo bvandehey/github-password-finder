@@ -3,6 +3,7 @@ The application is not yet finished.
 Although it already successfully filters out a lot of irrelevant occurrences of the credential related code, it still finds a lot of false positives.
 
 TODO:
+* support for multiple sets of credentials, so that you don't get throttled by github that easily
 * Automatic credential validation for most common cases (if for instance MySQL credentials are found, the app should automatically try to connect to that MySQL database)
 * Database storage for found credentials
 * Run as a server app with REST data provisioning

@@ -88,10 +88,15 @@ describe('GIVEN a JSON file', () => {
             .butItsOnlyForLocalhost();
     });
 
-    it('WHEN the file contains passwords, not only for localhost, THEN the testers should not find it', () => {
+    it('WHEN the file contains passwords, not only for localhost, THEN the testers should find it', () => {
         testFile('test/resources/json_file_mentions_passwords_not_for_localhost.json')
             .andExpectToHaveFoundAPassword()
             .andItsNotForLocalhost();
+    });
+
+    it('WHEN the file does not contain any password, but is a very large one liner, THEN the testers should not find it', () => {
+        testFile('test/resources/json_file_mentions_password_large.json')
+            .andExpectNotToHaveFoundAPassword();
     });
 });
 
@@ -125,7 +130,7 @@ describe('GIVEN a Java file', () => {
             .butItsOnlyForLocalhost();
     });
 
-    it('WHEN the file contains passwords, not only for localhost, THEN the testers should not find it', () => {
+    it('WHEN the file contains passwords, not only for localhost, THEN the testers should find it', () => {
         testFile('test/resources/java_file_mentions_passwords_not_for_localhost.java')
             .andExpectToHaveFoundAPassword()
             .andItsNotForLocalhost();
@@ -163,7 +168,7 @@ describe('GIVEN an XML file', () => {
             .butItsOnlyForLocalhost();
     });
 
-    it('WHEN the file contains passwords, not only for localhost, THEN the testers should not find it', () => {
+    it('WHEN the file contains passwords, not only for localhost, THEN the testers should find it', () => {
         testFile('test/resources/xml_file_mentions_passwords_in_tags_not_for_localhost.xml')
             .andExpectToHaveFoundAPassword()
             .andItsNotForLocalhost();
@@ -189,7 +194,7 @@ describe('GIVEN a properties file', () => {
             .butItsOnlyForLocalhost();
     });
 
-    it('WHEN the file contains passwords, not only for localhost, THEN the testers should not find it', () => {
+    it('WHEN the file contains passwords, not only for localhost, THEN the testers should find it', () => {
         testFile('test/resources/props_file_mentions_passwords_not_for_localhost.properties')
             .andExpectToHaveFoundAPassword()
             .andItsNotForLocalhost();

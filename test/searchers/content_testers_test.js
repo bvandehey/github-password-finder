@@ -168,6 +168,12 @@ describe('GIVEN an XML file', () => {
             .butItsOnlyForLocalhost();
     });
 
+    it('WHEN the file contains passwords in one liner file, THEN the testers should find it', () => {
+        testFile('test/resources/xml_file_mentiones_password_one_liner.xml')
+            .andExpectToHaveFoundAPassword()
+            .butItsOnlyForLocalhost();
+    });
+
     it('WHEN the file contains passwords, not only for localhost, THEN the testers should find it', () => {
         testFile('test/resources/xml_file_mentions_passwords_in_tags_not_for_localhost.xml')
             .andExpectToHaveFoundAPassword()

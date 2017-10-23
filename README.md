@@ -1,3 +1,14 @@
+# Note
+TODO:
+* Integration test (possibly with a mocked github server)
+* Actual test for the GitHub beta version api. This one can change any time without any notice, so it's better to have a test notifying you if the API still works
+* Bug: the reports are duplicated in the mongodb, if the scan is performed for the same user twice. Make sure that the outdated report gets overriden.
+* Add a REST endpoint to pull the detected passwords, or delete them, if assumed invalid
+* Automated password tests
+    * for TCP
+    * for MySQL
+    * for MongoDB
+
 # About
 The application makes it much easier and faster to find all sorts of credentials stored in github,
 by 
